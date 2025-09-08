@@ -4,7 +4,7 @@ library(tidyverse)
 simplemdm <- read_csv(here("data/input/simplemdm_export.csv"))
 
 simplemdm_cleaned <- simplemdm %>%
-  filter(`Group: DEOHS Standard Installation` == TRUE | `Group: DEOHS Standard No Filevault` == TRUE | `Group: EPI Standard Deployment` == TRUE) %>%
+  filter(`Group: DEOHS Standard Software and Profiles` == TRUE | `Group: DEOHS Standard No Filevault` == TRUE | `Group: Epi Standard Software and Profiles` == TRUE) %>%
   select(`SimpleMDM Name`,`Model`,`Product type`,`Serial number`,`assigned_user`) %>%
   rename(name = `SimpleMDM Name`, model = `Model`, type = `Product type`, serial = `Serial number`, user = `assigned_user`) %>%
   mutate(name = str_remove(name, '.clients.uw.edu')) %>%
